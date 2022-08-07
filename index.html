@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <title>看護記録</title>
+  </head>
+ 
+  <body>
+<div style="height:12px;">
+<span style="margin-left:8px; padding:6px 5px; background:white; font-weight:bold;border-radius:5px;">情報記録</span>
+</div>
+<div style="border:2px solid #000066; padding:25px 12px 10px; font-size:1em;border-radius:5px;">
+  <form method="post" action="https://script.google.com/macros/s/AKfycbwyhRE7QC7T_90vLkOCoWsjsS5lRoG0ABfZRzuoS6Wo2ekHUcv2uXgDLHnY5Ql4yIbw/exec">
+    <p>
+      <label>記録日時 <input type="text" name="ab"></label>
+    </p>
+    <p>
+      <label>処置内容 <input type="text" name="cd"></label>
+    </p>
+      <input type="submit" value="記録"　class="button"">
+    </p>
+  </form>
+</div>
+  </body>
+<br>
+<span style="margin-left:8px; padding:6px 5px; background:white; font-weight:bold;border-radius:5px;">記録内容</span>
+</div>
+<div style="border:2px solid #000066; padding:25px 12px 10px; font-size:1em;border-radius:5px;">
+<table border="1">
+  <tr>
+    <th>記録日時</th><th>処置内容</th>
+  </tr>
+  <tr>
+    <td><input type="text" id="a" name="a" style="border:none" readonly></td><td><input type="text" id="b" name="b" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="c" name="c" style="border:none" readonly></td><td><input type="text" id="d" name="d" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="e" name="e" style="border:none" readonly></td><td><input type="text" id="f" name="f" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="g" name="g" style="border:none" readonly></td><td><input type="text" id="b" name="g" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="h" name="h" style="border:none" readonly></td><td><input type="text" id="i" name="i" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="j" name="j" style="border:none" readonly></td><td><input type="text" id="k" name="k" style="border:none" readonly></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="l" name="l" style="border:none" readonly></td><td><input type="text" id="m" name="m" style="border:none" readonly></td>
+  </tr>
+</table>
+</div>
+
+<script>
+    const endpoint = "https://script.google.com/macros/s/AKfycbwEBaSVFEK6_8ApRre_EkkEj0gX13DYSaE5S4CwKxCwHWH2A4C5J11z01-NUf8EYTev/exec";
+        
+        fetch(endpoint)
+        .then(response => response.json())
+        .then(data => {
+            const object = data;
+            $('input').each(function (index, element) {
+                if (object[0][$(element).attr('name')]) {
+                    $(element).val([object[0][$(element).attr('name')]]);
+                }
+            });
+        });
+</script>
+
+</html>

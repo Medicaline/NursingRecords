@@ -1,0 +1,17 @@
+table {
+    background-color: #ffffff; 
+}
+ 
+th {
+    background-color: #e6e6fa; 
+}
+
+th {
+    width:  250px;             
+    height: 50px;             
+}
+
+td {
+    width:  250px;           
+    height: 30px;               
+}
